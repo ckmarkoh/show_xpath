@@ -1,0 +1,16 @@
+{
+  "name": "Show_Xpath",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Show Xpath at console",
+  "content_scripts": [
+  	{
+      "matches": ["https://*/*","http://*/*"],
+  		"js": ["jquery.js","xpath.js"],
+  		"run_at": "document_end"
+  	}
+  ],
+  "permissions": [
+   "<all_urls>"
+  ]
+}
