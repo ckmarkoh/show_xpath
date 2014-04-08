@@ -2,6 +2,7 @@ function getXPath(node) {
     var comp, comps = [];
     var parent = null;
     var xpath = '';
+    var xpath_2 = '';
     var getPos = function(node) {
         var position = 1, curNode;
         if (node.nodeType == Node.ATTRIBUTE_NODE) {
@@ -46,6 +47,7 @@ function getXPath(node) {
     }
     for (var i = comps.length - 1; i >= 0; i--) {
         comp = comps[i];
+        xpath_2 += '/' + comp.name;
         xpath += '/' + comp.name;
         if (comp.position != null) {
             if(comp.idname!=""){
@@ -59,7 +61,9 @@ function getXPath(node) {
             }
         }
     }
-    return xpath;
+    console.log(xpath)
+    console.log(xpath_2)
+    //return xpath;
 }
 
   // Handler for .ready() called.
@@ -67,8 +71,8 @@ function getXPath(node) {
 $( document ).ready(function( ) {
     $("*").mousedown(function(e){ 
         if( e.button == 2 ) { 
-            var xpath=getXPath(this);
-            console.log(xpath);
+            getXPath(this);
+            //console.log(xpath);
             //copy(xpath);
             //$x(xpath);
             //copy(xpath);
